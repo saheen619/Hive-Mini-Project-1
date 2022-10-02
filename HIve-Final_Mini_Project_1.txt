@@ -8,6 +8,25 @@ Note: both files are csv files.
 
 
 1. Create a schema based on the given dataset
+
+hive> use projects;
+hive> create table agentlogingreport
+hive> (
+hive> sl_no int,
+hive> agent_name string,
+hive> date string,
+hive> login_time string,
+hive> logout_time string,
+hive> duration string
+hive> )
+hive> row format delimited
+hive> fields terminated by ','
+hive> tblproperties ("skip.header.line.count")="1";
+
+load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
+
+
+
 2. Dump the data inside the hdfs in the given schema location.
 3. List of all agents' names. 
 4. Find out agent average rating.

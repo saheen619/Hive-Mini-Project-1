@@ -2,6 +2,16 @@ agentlogingreport.csv
 SL No,Agent,		Date,		Login Time,	Logout Time,	Duration
 1,Shivananda Sonwane,	30-Jul-22,	15:35:29,	17:39:39,	02:04:10
 
+RAW:
+insert overwrite table agentlogingreport_csv 
+select s_no,
+agent_name,
+from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
+from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+from agentlogingreport;
+
 
 create table agentloginreport
 (

@@ -26,3 +26,11 @@ SL No,  Date,		Agent Name,	Total Chats,	Average Response Time,	Average Resolutio
 1,	7/30/2022,	Prerna Singh,	11,		0:00:38,		0:04:20,			4.11,			9
 
 
+sl_no int,
+date string,                  --date
+agent_name string,
+total_chats int,
+avg_response_time string,     --timestamp
+avg_resolution_time string,   --timestamp
+avg_rating float,
+total_feedback int

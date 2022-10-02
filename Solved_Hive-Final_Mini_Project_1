@@ -19,18 +19,7 @@ hive> use projects;
     > )
     > row format delimited
     > fields terminated by ','
-    > tblproperties ("skip.header.line.count")="1";
-
-hive> load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
-
-hive> insert overwrite table agentlogingreport
-    > select sl_no,
-    > agent_name,
-    > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
-    > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-    > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-    > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
-    > from agentlogingreport;
+    > tblproperties ("skip.header.line.count"="1");
 
 SCHEMA FOR AgentPerformance.csv
 
@@ -49,6 +38,24 @@ hive> create table agentperformance
     > fields terminated by ','
     > tblproperties ("skip.header.line.count"="1");
 
+
+2. Dump the data inside the hdfs in the given schema location.
+
+FOR TABLE agentlogingreport
+
+hive> load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
+
+hive> insert overwrite table agentlogingreport
+    > select sl_no,
+    > agent_name,
+    > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
+    > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+    > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+    > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+    > from agentlogingreport;
+
+FOR TABLE agentperformance
+
 hive> load data local inpath 'file:///tmp/agentperformance.csv' into table agentperformance;
 
 hive> insert overwrite table agentperformance
@@ -62,8 +69,6 @@ hive> insert overwrite table agentperformance
     > total_feedback
     > from agentperformance;
 
-
-2. Dump the data inside the hdfs in the given schema location.
 3. List of all agents' names. 
 4. Find out agent average rating.
 5. Total working days for each agents 

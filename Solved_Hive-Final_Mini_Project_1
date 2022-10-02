@@ -6,6 +6,7 @@ Note: both files are csv files.
 1. Create a schema based on the given dataset.
 
 
+
 2. Dump the data inside the hdfs in the given schema location.
 3. List of all agents' names. 
 4. Find out agent average rating.

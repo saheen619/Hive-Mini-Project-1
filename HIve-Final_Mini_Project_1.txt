@@ -9,21 +9,34 @@ Note: both files are csv files.
 
 1. Create a schema based on the given dataset
 
+SCHEMA FOR AgentLogingReport.csv
+
 hive> use projects;
-hive> create table agentlogingreport
-hive> (
-hive> sl_no int,
-hive> agent_name string,
-hive> date string,
-hive> login_time string,
-hive> logout_time string,
-hive> duration string
-hive> )
-hive> row format delimited
-hive> fields terminated by ','
-hive> tblproperties ("skip.header.line.count")="1";
+    > create table agentlogingreport
+    > (
+    > sl_no int,
+    > agent_name string,
+    > date string,
+    > login_time string,
+    > logout_time string,
+    > duration string
+    > )
+    > row format delimited
+    > fields terminated by ','
+    > tblproperties ("skip.header.line.count")="1";
 
 load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
+
+hive> insert overwrite table agentlogingreport
+    > select sl_no,
+    > agent_name,
+    > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
+    > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+    > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+    > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+    > from agentlogingreport;
+
+SCHEMA FOR AgentPerformance.csv
 
 
 

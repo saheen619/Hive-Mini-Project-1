@@ -44,5 +44,5 @@ total_chats,
 from_unixtime(unix_timestamp(concat(date,avg_response_time),'MM-dd-yyyyHH:mm:ss'),'yyyy-MM-dd HH-mm-ss'),
 from_unixtime(unix_timestamp(concat(date,avg_resolution_time),'MM-dd-yyyyHH:mm:ss'),'yyyy-MM-dd HH-mm-ss'),
 avg_rating,
-total feedback
+total_feedback
 from agentperformance

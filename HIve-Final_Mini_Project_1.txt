@@ -25,7 +25,7 @@ hive> use projects;
     > fields terminated by ','
     > tblproperties ("skip.header.line.count")="1";
 
-load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
+hive> load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
 
 hive> insert overwrite table agentlogingreport
     > select sl_no,
@@ -37,6 +37,23 @@ hive> insert overwrite table agentlogingreport
     > from agentlogingreport;
 
 SCHEMA FOR AgentPerformance.csv
+
+hive> create table agentperformance
+    > (
+    > sl_no int,
+    > date string,
+    > agent_name string,
+    > total_chats int,
+    > avg_response_time string,
+    > avg_resolution_time string,
+    > avg_rating float,
+    > total_feedback int
+    > )
+    > row format delimited
+    > fields terminated by ','
+    > tblproperties ("skip.header.line.count"="1");
+
+hive> load data local inpath 'file:///tmp/agentperformance.csv' into table agentperformance;
 
 
 

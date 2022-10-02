@@ -20,7 +20,7 @@ fields terminated by ',';
 (
 sl_no int,
 agent_name string, 
-from_unixtime(unix_timestamp(date,'dd-MMM-yy'),
+from_unixtime(unix_timestamp(date,'dd-MMM-yy')),
 from_unixtime(unix_timestamp(date,login_time),'dd-MMM-yy HH:mm:ss'),
 from_unixtime(unix_timestamp(date,logout_time),'dd-MMM-yy HH:mm:ss'),
 from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yy HH:mm:ss'),'yyyy-MM-dd HH:mm:ss')

@@ -70,6 +70,12 @@ hive> insert overwrite table agentperformance
     > from agentperformance;
 
 3. List of all agents' names. 
+
+
+
+OUTPUT:
+
+
 4. Find out agent average rating.
 5. Total working days for each agents 
 6. Total query that each agent have taken 

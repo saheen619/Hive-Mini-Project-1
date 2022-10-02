@@ -9,8 +9,8 @@ sl_no int,
 agent_name string, 
 from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
 from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yy HH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yy HH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yy HH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
 )
 from agentlogingreport
 row format delimited
@@ -22,8 +22,8 @@ sl_no int,
 agent_name string, 
 from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
 from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yy HH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+from_unixtime(unix_timestamp(date,logout_time),'dd-MMM-yy HH:mm:ss'),
+from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yy HH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
 )
 
 

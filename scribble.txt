@@ -34,3 +34,15 @@ avg_response_time string,     --timestamp
 avg_resolution_time string,   --timestamp
 avg_rating float,
 total_feedback int
+
+
+insert overwrite table agentperformance
+select sl_no,
+from_unixtime(unix_timestamp(date,'MM-dd-yyyy'),'yyyy-MM-dd'),
+agent_name,
+total_chats,
+from_unixtime(unix_timestamp(concat(date,avg_response_time),'MM-dd-yyyyHH:mm:ss'),'yyyy-MM-dd HH-mm-ss'),
+from_unixtime(unix_timestamp(concat(date,avg_resolution_time),'MM-dd-yyyyHH:mm:ss'),'yyyy-MM-dd HH-mm-ss'),
+avg_rating,
+total feedback
+from agentperformance

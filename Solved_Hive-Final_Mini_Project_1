@@ -5,6 +5,62 @@ Note: both files are csv files.
 
 1. Create a schema based on the given dataset.
 
+SCHEMA FOR AgentLogingReport.csv
+
+hive> use projects;
+    > create table agentlogingreport
+    > (
+    > sl_no int,
+    > agent_name string,
+    > date string,
+    > login_time string,
+    > logout_time string,
+    > duration string
+    > )
+    > row format delimited
+    > fields terminated by ','
+    > tblproperties ("skip.header.line.count")="1";
+
+hive> load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
+
+hive> insert overwrite table agentlogingreport
+    > select sl_no,
+    > agent_name,
+    > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
+    > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+    > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
+    > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+    > from agentlogingreport;
+
+SCHEMA FOR AgentPerformance.csv
+
+hive> create table agentperformance
+    > (
+    > sl_no int,
+    > date string,
+    > agent_name string,
+    > total_chats int,
+    > avg_response_time string,
+    > avg_resolution_time string,
+    > avg_rating float,
+    > total_feedback int
+    > )
+    > row format delimited
+    > fields terminated by ','
+    > tblproperties ("skip.header.line.count"="1");
+
+hive> load data local inpath 'file:///tmp/agentperformance.csv' into table agentperformance;
+
+hive> insert overwrite table agentperformance
+    > select sl_no,
+    > from_unixtime(unix_timestamp(date,'M/dd/yyyy'),'yyyy-MM-dd'),
+    > agent_name,
+    > total_chats,
+    > from_unixtime(unix_timestamp(concat(date,avg_response_time),'M/dd/yyyyHH:mm:ss'),'yyyy-MM-dd HH-mm-ss'),
+    > from_unixtime(unix_timestamp(concat(date,avg_resolution_time),'M/dd/yyyyHH:mm:ss'),'yyyy-MM-dd HH-mm-ss'),
+    > avg_rating,
+    > total_feedback
+    > from agentperformance;
 
 
 2. Dump the data inside the hdfs in the given schema location.

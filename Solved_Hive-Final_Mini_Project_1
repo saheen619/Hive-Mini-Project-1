@@ -237,9 +237,219 @@ COUNT(DISTINCT date) AS total_working_days
 FROM agentlogingreport 
 GROUP BY agent_name;
 
+agent_name      total_working_days
+NULL    0
+Aditya Shinde   1
+Aditya_iot      8
+Amersh  2
+Ameya Jain      7
+Ankitjha        2
+Anurag Tiwari   10
+Aravind 7
+Ayushi Mishra   9
+Bharath 8
+Boktiar Ahmed Bappy     9
+Chaitra K Hiremath      7
+Deepranjan Gupta        10
+Dibyanshu       9
+Harikrishnan Shaji      9
+Hrisikesh Neogi 9
+Hyder Abbas     2
+Ineuron Intelligence    1
+Ishawant Kumar  11
+Jawala Prakash  9
+Jaydeep Dixit   7
+Khushboo Priya  8
+Madhulika G     8
+Mahesh Sarade   8
+Maitry  5
+Manjunatha A    7
+Mithun S        8
+Mukesh  2
+Muskan Garg     6
+Nandani Gupta   9
+Nishtha Jain    8
+Nitin M 1
+Prabir Kumar Satapathy  7
+Prateek _iot    11
+Prerna Singh    9
+Rishav Dash     7
+Saikumarreddy N 7
+Sanjeev Kumar   9
+Saurabh Shukla  4
+Shiva Srivastava        8
+Shivan K        8
+Shivananda Sonwane      10
+Shubham Sharma  11
+Sowmiya Sivakumar       8
+Sudhanshu Kumar 6
+Suraj S Bilgi   2
+Swati   4
+Tarun   1
+Wasim   9
+Zeeshan 9
+
 
 6. Total query that each agent have taken 
+
+SELECT agent_name, SUM(total_chats) AS total_query 
+FROM agentperformance 
+GROUP BY agent_name;
+
+agent_name      total_query
+Abhishek        0
+Aditya  0
+Aditya Shinde   277
+Aditya_iot      231
+Amersh  0
+Ameya Jain      322
+Anirudh         81
+Ankit Sharma    0
+Ankitjha        5
+Anurag Tiwari   4
+Aravind         366
+Ashad Nasim     18
+Ashish  0
+Ayushi Mishra   514
+Bharath         369
+Boktiar Ahmed Bappy     452
+Chaitra K Hiremath      64
+Deepranjan Gupta        493
+Dibyanshu       1
+Harikrishnan Shaji      381
+Hitesh Choudhary        1
+Hrisikesh Neogi 578
+Hyder Abbas     0
+Ineuron Intelligence    0
+Ishawant Kumar  338
+Jawala Prakash  439
+Jayant Kumar    127
+Jaydeep Dixit   512
+Khushboo Priya  446
+Madhulika G     469
+Mahak   7
+Mahesh Sarade   364
+Maitry  542
+Maneesh         4
+Manjunatha A    413
+Mithun S        503
+Mukesh  19
+Mukesh Rao      5
+Muskan Garg     56
+Nandani Gupta   560
+Nishtha Jain    373
+Nitin M 0
+Prabir Kumar Satapathy  299
+Prateek _iot    190
+Prerna Singh    401
+Rishav Dash     409
+Rohan   0
+Saif Khan       0
+Saikumarreddy N 364
+Samprit         1
+Sandipan Saha   30
+Sanjeev Kumar   507
+Sanjeevan       0
+Saurabh Shukla  16
+Shiva Srivastava        53
+Shivan K        357
+Shivan_S        7
+Shivananda Sonwane      441
+Shubham Sharma  510
+Sowmiya Sivakumar       206
+Spuri   0
+Sudhanshu Kumar 2
+Suraj S Bilgi   28
+Swati   524
+Tarun   22
+Uday Mishra     0
+Vasanth P       0
+Vivek   44
+Wasim   433
+Zeeshan         542
+
+
+
 7. Total Feedback that each agent have received 
+
+SELECT agent_name, SUM(total_feedback) AS total_feedbacks 
+FROM agentperformance 
+GROUP BY agent_name;
+
+agent_name      total_feedbacks
+Abhishek        0
+Aditya  0
+Aditya Shinde   153
+Aditya_iot      131
+Amersh  0
+Ameya Jain      228
+Anirudh         39
+Ankit Sharma    0
+Ankitjha        3
+Anurag Tiwari   3
+Aravind         233
+Ashad Nasim     9
+Ashish  0
+Ayushi Mishra   329
+Bharath         247
+Boktiar Ahmed Bappy     311
+Chaitra K Hiremath      37
+Deepranjan Gupta        312
+Dibyanshu       0
+Harikrishnan Shaji      231
+Hitesh Choudhary        0
+Hrisikesh Neogi 367
+Hyder Abbas     0
+Ineuron Intelligence    0
+Ishawant Kumar  202
+Jawala Prakash  250
+Jayant Kumar    70
+Jaydeep Dixit   305
+Khushboo Priya  289
+Madhulika G     281
+Mahak   5
+Mahesh Sarade   216
+Maitry  347
+Maneesh         3
+Manjunatha A    254
+Mithun S        364
+Mukesh  17
+Mukesh Rao      5
+Muskan Garg     37
+Nandani Gupta   308
+Nishtha Jain    257
+Nitin M 0
+Prabir Kumar Satapathy  222
+Prateek _iot    107
+Prerna Singh    235
+Rishav Dash     264
+Rohan   0
+Saif Khan       0
+Saikumarreddy N 290
+Samprit         0
+Sandipan Saha   18
+Sanjeev Kumar   311
+Sanjeevan       0
+Saurabh Shukla  8
+Shiva Srivastava        46
+Shivan K        243
+Shivan_S        4
+Shivananda Sonwane      263
+Shubham Sharma  300
+Sowmiya Sivakumar       141
+Spuri   0
+Sudhanshu Kumar 2
+Suraj S Bilgi   15
+Swati   302
+Tarun   6
+Uday Mishra     0
+Vasanth P       0
+Vivek   20
+Wasim   284
+Zeeshan         335
+
+
+
 8. Agent name who have average rating between 3.5 to 4 
 9. Agent name who have rating less than 3.5 
 10. Agent name who have rating more than 4.5 

@@ -451,6 +451,13 @@ Zeeshan         335
 
 
 8. Agent name who have average rating between 3.5 to 4 
+
+SELECT agent_name, ROUND(AVG(avg_rating),2) 
+FROM agentperformance 
+WHERE avg_rating BETWEEN 3.5 AND 4 
+GROUP BY agent_name;
+
+
 9. Agent name who have rating less than 3.5 
 10. Agent name who have rating more than 4.5 
 11. How many feedback agents have received more than 4.5 average

@@ -578,7 +578,59 @@ Zeeshan         2.29
 
 10. Agent name who have rating more than 4.5 
 
+SELECT agent_name, ROUND(AVG(avg_rating),2) 
+FROM agentperformance 
+WHERE avg_rating > 4.5 
+GROUP BY agent_name;
 
+agent_name      _c1
+Aditya Shinde   4.77
+Aditya_iot      4.73
+Ameya Jain      4.67
+Anirudh         5.0
+Ankitjha        5.0
+Aravind         4.74
+Ayushi Mishra   4.77
+Bharath         4.76
+Boktiar Ahmed Bappy     4.87
+Chaitra K Hiremath      5.0
+Deepranjan Gupta        4.83
+Harikrishnan Shaji      4.75
+Hrisikesh Neogi 4.72
+Ishawant Kumar  4.83
+Jawala Prakash  4.76
+Jayant Kumar    5.0
+Jaydeep Dixit   4.75
+Khushboo Priya  4.71
+Madhulika G     4.82
+Mahesh Sarade   4.62
+Maitry  4.88
+Manjunatha A    4.76
+Mithun S        4.7
+Mukesh  4.64
+Mukesh Rao      5.0
+Muskan Garg     4.8
+Nandani Gupta   4.67
+Nishtha Jain    5.0
+Prabir Kumar Satapathy  4.88
+Prateek _iot    4.88
+Prerna Singh    4.73
+Rishav Dash     4.7
+Saikumarreddy N 4.74
+Sandipan Saha   5.0
+Sanjeev Kumar   4.72
+Saurabh Shukla  5.0
+Shiva Srivastava        5.0
+Shivan K        4.76
+Shivananda Sonwane      4.82
+Shubham Sharma  4.81
+Sowmiya Sivakumar       4.75
+Sudhanshu Kumar 5.0
+Suraj S Bilgi   5.0
+Swati   4.67
+Vivek   5.0
+Wasim   4.73
+Zeeshan         4.76
 
 
 11. How many feedback agents have received more than 4.5 average

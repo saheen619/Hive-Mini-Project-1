@@ -69,45 +69,37 @@ hive> insert overwrite table agentperformance
     > total_feedback
     > from agentperformance;
 
-3. List of all agents' names.  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+3. List of all agents' names.
 
-SELECT DISTINCT * FROM 
-(SELECT agent_name FROM agentlogingreport 
-UNION ALL 
-SELECT agent_name FROM agentperformance)a;
+SELECT DISTINCT agent_name FROM agentperformance;
+
 
 OUTPUT:
 
+agent_name
 Abhishek
 Aditya
 Aditya Shinde
 Aditya_iot
-Aditya_iot
-Amersh
 Amersh
 Ameya Jain
 Anirudh
 Ankit Sharma
 Ankitjha
-Ankitjha
 Anurag Tiwari
-Aravind
 Aravind
 Ashad Nasim
 Ashish
 Ayushi Mishra
 Bharath
-Bharath
 Boktiar Ahmed Bappy
 Chaitra K Hiremath
 Deepranjan Gupta
-Dibyanshu
 Dibyanshu
 Harikrishnan Shaji
 Hitesh Choudhary
 Hrisikesh Neogi
 Hyder Abbas
-Ineuron Intelligence
 Ineuron Intelligence
 Ishawant Kumar
 Jawala Prakash
@@ -118,11 +110,9 @@ Madhulika G
 Mahak
 Mahesh Sarade
 Maitry
-Maitry
 Maneesh
 Manjunatha A
 Mithun S
-Mukesh
 Mukesh
 Mukesh Rao
 Muskan Garg
@@ -130,7 +120,6 @@ Nandani Gupta
 Nishtha Jain
 Nitin M
 Prabir Kumar Satapathy
-Prateek _iot
 Prateek _iot
 Prerna Singh
 Rishav Dash
@@ -152,16 +141,13 @@ Spuri
 Sudhanshu Kumar
 Suraj S Bilgi
 Swati
-Swati
-Tarun
 Tarun
 Uday Mishra
 Vasanth P
 Vivek
 Wasim
-Wasim
 Zeeshan
-Zeeshan
+
 
 4. Find out agent average rating.
 

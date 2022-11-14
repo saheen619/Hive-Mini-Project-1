@@ -634,7 +634,63 @@ Zeeshan         4.76
 
 
 11. How many feedback agents have received more than 4.5 average
-12. average weekly response time for each agent 
+
+SELECT agent_name, COUNT(avg_rating) FROM agentperformance WHERE avg_rating > 4.5 GROUP BY agent_name;
+
+agent_name      _c1
+Aditya Shinde   7
+Aditya_iot      6
+Ameya Jain      8
+Anirudh         1
+Ankitjha        1
+Aravind         11
+Ayushi Mishra   8
+Bharath         17
+Boktiar Ahmed Bappy     8
+Chaitra K Hiremath      2
+Deepranjan Gupta        7
+Harikrishnan Shaji      7
+Hrisikesh Neogi 11
+Ishawant Kumar  12
+Jawala Prakash  5
+Jayant Kumar    2
+Jaydeep Dixit   13
+Khushboo Priya  13
+Madhulika G     8
+Mahesh Sarade   4
+Maitry  7
+Manjunatha A    13
+Mithun S        5
+Mukesh  2
+Mukesh Rao      1
+Muskan Garg     2
+Nandani Gupta   7
+Nishtha Jain    6
+Prabir Kumar Satapathy  6
+Prateek _iot    9
+Prerna Singh    9
+Rishav Dash     3
+Saikumarreddy N 8
+Sandipan Saha   1
+Sanjeev Kumar   11
+Saurabh Shukla  2
+Shiva Srivastava        1
+Shivan K        9
+Shivananda Sonwane      17
+Shubham Sharma  12
+Sowmiya Sivakumar       1
+Sudhanshu Kumar 2
+Suraj S Bilgi   1
+Swati   7
+Vivek   1
+Wasim   10
+Zeeshan         3
+
+
+12. average weekly response time for each agent
+
+
+
 13. average weekly resolution time for each agents 
 14. Find the number of chat on which they have received a feedback 
 15. Total contribution hour for each and every agents weekly basis 

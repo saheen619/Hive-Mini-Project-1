@@ -457,8 +457,125 @@ FROM agentperformance
 WHERE avg_rating BETWEEN 3.5 AND 4 
 GROUP BY agent_name;
 
+agent_name      _c1
+Aditya Shinde   3.54
+Aditya_iot      3.74
+Ameya Jain      4.0
+Anirudh         3.77
+Anurag Tiwari   3.5
+Ashad Nasim     4.0
+Ayushi Mishra   3.85
+Boktiar Ahmed Bappy     3.88
+Chaitra K Hiremath      4.0
+Deepranjan Gupta        3.68
+Harikrishnan Shaji      3.84
+Hrisikesh Neogi 3.78
+Ishawant Kumar  3.77
+Jawala Prakash  3.84
+Jayant Kumar    3.76
+Jaydeep Dixit   3.98
+Khushboo Priya  3.81
+Madhulika G     3.86
+Mahesh Sarade   3.78
+Maitry  3.83
+Maneesh         4.0
+Manjunatha A    3.87
+Mithun S        3.82
+Muskan Garg     3.81
+Nandani Gupta   3.74
+Nishtha Jain    3.78
+Prabir Kumar Satapathy  4.0
+Prateek _iot    3.75
+Prerna Singh    3.8
+Rishav Dash     3.79
+Sandipan Saha   3.62
+Sanjeev Kumar   4.0
+Saurabh Shukla  3.67
+Shiva Srivastava        4.0
+Shivan K        3.98
+Shivananda Sonwane      3.62
+Shubham Sharma  4.0
+Swati   3.76
+Wasim   3.84
+Zeeshan         3.77
+
 
 9. Agent name who have rating less than 3.5 
+
+SELECT agent_name, ROUND(AVG(avg_rating),2) 
+FROM agentperformance 
+GROUP BY agent_name 
+HAVING AVG(avg_rating) < 3.5;
+
+agent_name      _c1
+Abhishek        0.0
+Aditya  0.0
+Aditya Shinde   1.8
+Aditya_iot      2.35
+Amersh  0.0
+Ameya Jain      2.22
+Anirudh         0.64
+Ankit Sharma    0.0
+Ankitjha        0.27
+Anurag Tiwari   0.18
+Aravind         2.18
+Ashad Nasim     0.17
+Ashish  0.0
+Ayushi Mishra   3.48
+Bharath         2.98
+Chaitra K Hiremath      0.86
+Deepranjan Gupta        2.89
+Dibyanshu       0.0
+Harikrishnan Shaji      2.64
+Hitesh Choudhary        0.0
+Hrisikesh Neogi 3.14
+Hyder Abbas     0.0
+Ineuron Intelligence    0.0
+Jawala Prakash  3.47
+Jayant Kumar    1.07
+Jaydeep Dixit   3.17
+Madhulika G     3.5
+Mahak   0.1
+Mahesh Sarade   2.4
+Maitry  2.93
+Maneesh         0.17
+Mithun S        2.36
+Mukesh  0.31
+Mukesh Rao      0.26
+Muskan Garg     0.71
+Nandani Gupta   2.92
+Nishtha Jain    3.28
+Nitin M 0.0
+Prabir Kumar Satapathy  2.51
+Prateek _iot    2.44
+Prerna Singh    3.23
+Rishav Dash     1.43
+Rohan   0.0
+Saif Khan       0.0
+Saikumarreddy N 1.98
+Samprit         0.0
+Sandipan Saha   0.43
+Sanjeev Kumar   3.38
+Sanjeevan       0.0
+Saurabh Shukla  0.56
+Shiva Srivastava        0.94
+Shivan K        2.84
+Shivan_S        0.14
+Shubham Sharma  3.23
+Sowmiya Sivakumar       1.26
+Spuri   0.0
+Sudhanshu Kumar 0.33
+Suraj S Bilgi   0.31
+Swati   2.42
+Tarun   0.05
+Uday Mishra     0.0
+Vasanth P       0.0
+Vivek   0.5
+Wasim   2.4
+Zeeshan         2.29
+
+
+
 10. Agent name who have rating more than 4.5 
 11. How many feedback agents have received more than 4.5 average
 12. average weekly response time for each agent 

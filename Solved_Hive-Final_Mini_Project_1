@@ -232,6 +232,10 @@ Zeeshan         2.29
 
 5. Total working days for each agents 
 
+SELECT agent_name,
+COUNT(DISTINCT date) AS total_working_days 
+FROM agentlogingreport 
+GROUP BY agent_name;
 
 
 6. Total query that each agent have taken 

@@ -7,8 +7,8 @@ Note: both files are csv files.
 
 #SCHEMA FOR AgentLogingReport.csv
 
-hive> use projects;
-    > create table agentlogingreport
+hive> USE projects;
+    > CREATE TABLE agentlogingreport
     > (
     > sl_no int,
     > agent_name string,
@@ -17,13 +17,13 @@ hive> use projects;
     > logout_time string,
     > duration string
     > )
-    > row format delimited
-    > fields terminated by ','
-    > tblproperties ("skip.header.line.count"="1");
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > TBLPROPERTIES ("skip.header.line.count"="1");
 
 #SCHEMA FOR AgentPerformance.csv
 
-hive> create table agentperformance
+hive> CREATE TABLE agentperformance
     > (
     > sl_no int,
     > date string,
@@ -34,9 +34,9 @@ hive> create table agentperformance
     > avg_rating float,
     > total_feedback int
     > )
-    > row format delimited
-    > fields terminated by ','
-    > tblproperties ("skip.header.line.count"="1");
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > TBLPROPERTIES ("skip.header.line.count"="1");
 
 
 2. Dump the data inside the hdfs in the given schema location.

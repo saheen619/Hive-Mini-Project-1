@@ -12,17 +12,17 @@ Note: both files are csv files.
 
 hive> USE projects;    
     > CREATE TABLE agentlogingreport    
-    > (
-    > sl_no int,
-    > agent_name string,
-    > date string,
-    > login_time string,
-    > logout_time string,
-    > duration string
-    > )
-    > ROW FORMAT DELIMITED
-    > FIELDS TERMINATED BY ','
-    > TBLPROPERTIES ("skip.header.line.count"="1");
+    > (    
+    > sl_no int,   
+    > agent_name string,   
+    > date string,   
+    > login_time string,   
+    > logout_time string,   
+    > duration string   
+    > )  
+    > ROW FORMAT DELIMITED   
+    > FIELDS TERMINATED BY ','   
+    > TBLPROPERTIES ("skip.header.line.count"="1");   
 
 #SCHEMA FOR AgentPerformance.csv
 

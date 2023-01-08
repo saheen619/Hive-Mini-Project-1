@@ -167,5 +167,14 @@ hive> SELECT agent_name, SUM(total_chats), total_feedback
 
 
 15. Total contribution hour for each and every agents weekly basis 
+
+hive> WITH weeklycontribution AS(
+    > SELECT agent_name, WEEKOFYEAR(date) AS WEEK,
+    > (HOUR(duration)*3600 + MINUTE(duration)*60 + SECOND(duration))/3600 AS hours
+    > FROM agentlogingreport)
+    > SELECT agent_name, week, ROUND(SUM(hours),2) AS contribution_hours
+    > FROM weeklycontribution
+    > GROUP BY agent_name, week;
+
 16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.

@@ -1056,7 +1056,7 @@ hive>  WITH weeklyresolution AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS week,
     > (HOUR(avg_resolution_time)*3600 + MINUTE(avg_resolution_time)*60 + SECOND(avg_resolution_time))/60 AS resolution_time
     > FROM agentperformance)
-    > SELECT agent_name, week, ROUND(AVG(resolution_time),2) as avg_resolution_in_minutes
+    > SELECT agent_name, week, ROUND(AVG(resolution_time),2) AS avg_resolution_in_minutes
     > FROM weeklyresolution
     > GROUP BY agent_name, week;
 

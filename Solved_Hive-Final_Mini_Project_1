@@ -43,16 +43,15 @@ hive> CREATE TABLE agentperformance
 
 #FOR TABLE agentlogingreport
 
-hive> load data local inpath 'file:///tmp/agentlogingreport.csv' into table agentlogingreport;
+hive> LOAD DATA LOCAL INPATH 'file:///tmp/agentlogingreport.csv' INTO TABLE agentlogingreport;
 
-hive> insert overwrite table agentlogingreport
-    > select sl_no,
-    > agent_name,
+hive> INSERT OVERWRITE TABLE agentlogingreport
+    > SELECT sl_no, agent_name,
     > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
     > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
     > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
     > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
-    > from agentlogingreport;
+    > FROM agentlogingreport;
 
 #FOR TABLE agentperformance
 

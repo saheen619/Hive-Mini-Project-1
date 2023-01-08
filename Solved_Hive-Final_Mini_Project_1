@@ -177,4 +177,14 @@ hive> WITH weeklycontribution AS(
     > GROUP BY agent_name, week;
 
 16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
+
+INNER JOIN
+
+hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback
+    > FROM agentlogingreport alr
+    > JOIN
+    > agentperformance ap
+    > ON alr.agent_name = ap.agent_name
+    > LIMIT 30;
+
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.

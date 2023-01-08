@@ -186,5 +186,10 @@ hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, 
     > agentperformance ap
     > ON alr.agent_name = ap.agent_name
     > LIMIT 30;
+    
+    
+[cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
+FROM projects.agentlogingreport alr JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/inner_join.csv;
+
 
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.

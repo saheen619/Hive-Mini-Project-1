@@ -30,6 +30,12 @@ Note: both files are csv files.
 15. Total contribution hour for each agent on weekly basis 
 16. Perform inner join, left join and right join based on the agent column and after joining the table, export that data into your local system.
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.
+
+## Tech Used
+
+Cloudera Distributed Hadoop --V 5.13.0
+HIVE --V 1.1.0
+
 ## 🚀 About Me
 I'm Saheen AHZAN. 
 

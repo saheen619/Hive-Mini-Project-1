@@ -665,8 +665,10 @@ hive> WITH weeklyresolution AS(
 
 14. Find the number of chat on which they have received a feedback 
 
-hive> SELECT agent_name, SUM(total_chats), total_feedback FROM agentperformance WHERE total_feedback!=0 GROUP BY agent_name;
-
+hive> SELECT agent_name, SUM(total_chats), total_feedback 
+    > FROM agentperformance 
+    > WHERE total_feedback!=0 
+    > GROUP BY agent_name;
 
 
 15. Total contribution hour for each and every agents weekly basis 

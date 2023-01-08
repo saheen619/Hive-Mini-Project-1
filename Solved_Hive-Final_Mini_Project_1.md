@@ -103,7 +103,7 @@ hive> SELECT agent_name, SUM(total_chats) AS total_query
     > FROM agentperformance 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q6.JPG?raw=true)
 
 7. Total Feedback that each agent have received 
 
@@ -111,7 +111,7 @@ hive> SELECT agent_name, SUM(total_feedback) AS total_feedbacks
     > FROM agentperformance 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q7.JPG?raw=true)
 
 8. Agent name who have average rating between 3.5 to 4 
 
@@ -120,7 +120,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2)
     > WHERE avg_rating BETWEEN 3.5 AND 4 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q8.JPG?raw=true)
 
 9. Agent name who have rating less than 3.5 
 
@@ -129,7 +129,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2)
     > GROUP BY agent_name 
     > HAVING AVG(avg_rating) < 3.5;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q9.JPG?raw=truee)
 
 10. Agent name who have rating more than 4.5 
 
@@ -138,7 +138,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2)
     > WHERE avg_rating > 4.5 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q10.JPG?raw=true)
 
 11. How many feedback agents have received more than 4.5 average
 
@@ -147,7 +147,7 @@ hive> SELECT agent_name, COUNT(avg_rating)
     > WHERE avg_rating > 4.5 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q11.JPG?raw=true)
 
 12. average weekly response time (in minutes) for each agent
 
@@ -159,7 +159,7 @@ hive> WITH weekresponse AS(
     > FROM weekresponse
     > GROUP BY agent_name, week;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q12.JPG?raw=true)
 
 13. average weekly resolution time (in minutes) for each agents 
 
@@ -171,7 +171,7 @@ hive> WITH weeklyresolution AS(
     > FROM weeklyresolution
     > GROUP BY agent_name, week;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q13.JPG?raw=true)
 
 14. Find the number of chat on which they have received a feedback 
 
@@ -180,7 +180,7 @@ hive> SELECT agent_name, SUM(total_chats), total_feedback
     > WHERE total_feedback!=0 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q14.JPG?raw=true)
 
 15. Total contribution hour for each and every agents weekly basis 
 
@@ -192,7 +192,7 @@ hive> WITH weeklycontribution AS(
     > FROM weeklycontribution
     > GROUP BY agent_name, week;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q15.JPG?raw=true)
 
 16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
 
@@ -205,12 +205,12 @@ hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, 
     > ON alr.agent_name = ap.agent_name
     > LIMIT 30;
     
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20INNER.JPG?raw=true)
 
 [cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
 FROM projects.agentlogingreport alr JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/inner_join.csv;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20INNER%20Export.JPG?raw=true)
 
 LEFT JOIN
 
@@ -221,12 +221,12 @@ hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, 
     > ON alr.agent_name = ap.agent_name
     > LIMIT 30;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20LEFT%20JOIN.JPG?raw=true)
 
 [cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
 FROM projects.agentlogingreport alr LEFT JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/left_join.csv;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20LEFT%20JOIN%20Export.JPG?raw=true)
 
 RIGHT JOIN
 
@@ -237,12 +237,12 @@ agentperformance ap
 ON alr.agent_name = ap.agent_name
 LIMIT 30;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20RIGHT%20JOIN.JPG?raw=true)
 
 [cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
 FROM projects.agentlogingreport alr RIGHT JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/right_join.csv
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20RIGHT%20JOIN%20Export.JPG?raw=true)
 
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.
 
@@ -265,8 +265,8 @@ hive> SET hive.exec.dynamic.partition.mode = nonstrict;
 hive> INSERT INTO TABLE alr_partition_bucket PARTITION(agent_name) 
     > SELECT sl_no,date,login_time,logout_time,duration,agent_name FROM agentlogingreport;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Partiioned_bucketing_table.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Partiioned_bucketing_table2.JPG?raw=true)
 
 FOR THE TABLE agentperformance,
 
@@ -288,6 +288,6 @@ hive> CREATE TABLE ap_partition_bucket
 hive> INSERT INTO TABLE ap_partition_bucket PARTITION(agent_name)
     > SELECT sl_no, date, total_chats, avg_response_time, avg_resolution_time, avg_rating, total_feedback, agent_name FROM agentperformance;
     
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/ap_partiioned_bucketing_table.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/ap_partiioned_bucketing_table2.JPG?raw=true)
 

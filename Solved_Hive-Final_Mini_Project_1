@@ -38,6 +38,7 @@ hive> CREATE TABLE agentperformance
     > FIELDS TERMINATED BY ','
     > TBLPROPERTIES ("skip.header.line.count"="1");
 
+![Setup_Account/Login](https://github.com/saheen619/Kafka-Assignment/blob/main/Screenshots/Setup-Login%20Kafka%20Account.JPG?raw=true)
 
 2. Dump the data inside the hdfs in the given schema location.
 

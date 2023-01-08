@@ -71,14 +71,14 @@ hive> INSERT OVERWRITE TABLE agentperformance
     > total_feedback
     > FROM agentperformance;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_ap.JPG?raw=true)
 
 3. List of all agents' names.
 
 hive> SELECT DISTINCT agent_name 
     > FROM agentperformance;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q3.JPG?raw=true)
 
 4. Find out agent average rating.
 
@@ -86,7 +86,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating
     > FROM agentperformance 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q4.JPG?raw=true)
 
 5. Total working days for each agents 
 
@@ -95,7 +95,7 @@ hive> SELECT agent_name,
     > FROM agentlogingreport 
     > GROUP BY agent_name;
 
-![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
+![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q5.JPG?raw=true)
 
 6. Total query that each agent have taken 
 

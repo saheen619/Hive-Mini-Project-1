@@ -2,7 +2,7 @@
 ## Title
 
 A Mini Project on HIVE . To see the solved assignment, run the file Solved Hive Mini Project 1.md or click on the link : 
-https://github.com/saheen619/Hive-Mini_Project_1/blob/872c4349458c0bd2cf6ca2add231fe541d6d8769/Solved%20Hive%20Mini%20Project%201.md
+https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Solved%20Hive%20Mini%20Project%201.md
 
 ## Objective
 

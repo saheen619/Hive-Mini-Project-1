@@ -156,10 +156,10 @@ hive> SELECT agent_name, COUNT(avg_rating)
 
 hive> WITH weekresponse AS(    
     > SELECT agent_name, WEEKOFYEAR(date) AS week,   
-    > (HOUR(avg_response_time)*3600 + MINUTE(avg_response_time)*60 + SECOND(avg_response_time))/60 AS response2   
-    > FROM agentperformance)
-    > SELECT agent_name, week, ROUND(AVG(response2),2) as avg_response_in_minutes
-    > FROM weekresponse    
+    > (HOUR(avg_response_time)*3600 + MINUTE(avg_response_time)*60 + SECOND(avg_response_time))/60 AS response2     
+    > FROM agentperformance)     
+    > SELECT agent_name, week, ROUND(AVG(response2),2) as avg_response_in_minutes    
+    > FROM weekresponse     
     > GROUP BY agent_name, week;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q12.JPG?raw=true)
@@ -199,7 +199,7 @@ hive> WITH weeklycontribution AS(
 
 ### 16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
 
-### INNER JOIN
+#### INNER JOIN
 
 hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback   
     > FROM agentlogingreport alr   
@@ -210,12 +210,14 @@ hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, 
     
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20INNER.JPG?raw=true)
 
+#### Exporting the inner join data as a CSV file into the local system.
+
 [cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
 FROM projects.agentlogingreport alr JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/inner_join.csv;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20INNER%20Export.JPG?raw=true)
 
-### LEFT JOIN
+#### LEFT JOIN
 
 hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback    
     > FROM agentlogingreport alr   
@@ -226,12 +228,14 @@ hive> SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, 
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20LEFT%20JOIN.JPG?raw=true)
 
+#### Exporting the left join data as a CSV file into the local system.
+
 [cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
 FROM projects.agentlogingreport alr LEFT JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/left_join.csv;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20LEFT%20JOIN%20Export.JPG?raw=true)
 
-### RIGHT JOIN
+#### RIGHT JOIN
 
 SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback    
 FROM agentlogingreport alr   
@@ -241,6 +245,8 @@ ON alr.agent_name = ap.agent_name
 LIMIT 30;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20RIGHT%20JOIN.JPG?raw=true)
+
+#### Exporting the right join data as a CSV file into the local system.
 
 [cloudera@quickstart ~]$ hive -e 'SELECT alr.sl_no, alr.agent_name, alr.date, alr.duration, ap.total_chats, ap.avg_rating, ap.total_feedback 
 FROM projects.agentlogingreport alr RIGHT JOIN projects.agentperformance ap ON alr.agent_name = ap.agent_name' >/home/cloudera/projects/right_join.csv

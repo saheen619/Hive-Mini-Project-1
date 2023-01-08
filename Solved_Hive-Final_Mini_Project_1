@@ -687,7 +687,7 @@ Wasim   10
 Zeeshan         3
 
 
-12. average weekly response time for each agent
+12. average weekly response time (in minutes) for each agent
 
 hive>  WITH weekresponse AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS week,
@@ -1050,7 +1050,7 @@ Zeeshan         29      1.05
 Zeeshan         30      1.06
 
 
-13. average weekly resolution time for each agents 
+13. average weekly resolution time (in minutes) for each agents 
 
 hive>  WITH weeklyresolution AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS week,

@@ -6,7 +6,7 @@ Download Dataset 2 - https://drive.google.com/file/d/1-JIPCZ34dyN6k9CqJa-Y8yxIGq
 
 Note: both files are csv files.
 
-# 1. Create a schema based on the given dataset.
+### 1. Create a schema based on the given dataset.
 
 #SCHEMA FOR AgentLogingReport.csv
 

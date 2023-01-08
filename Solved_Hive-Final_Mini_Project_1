@@ -692,7 +692,8 @@ Zeeshan         3
 hive>  WITH weekresponse AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS week,
     > (HOUR(avg_response_time)*3600 + MINUTE(avg_response_time)*60 + SECOND(avg_response_time))/60 AS response2
-    >  FROM agentperformance)SELECT agent_name, week, ROUND(AVG(response2),2) as avg_response_in_minutes
+    > FROM agentperformance)
+    > SELECT agent_name, week, ROUND(AVG(response2),2) as avg_response_in_minutes
     > FROM weekresponse
     > GROUP BY agent_name, week;
 

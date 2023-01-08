@@ -77,69 +77,17 @@ hive> SELECT DISTINCT agent_name
 
 4. Find out agent average rating.
 
-SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating 
-FROM agentperformance 
-GROUP BY agent_name;
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating 
+    > FROM agentperformance 
+    > GROUP BY agent_name;
 
 
 5. Total working days for each agents 
 
-SELECT agent_name,
-COUNT(DISTINCT date) AS total_working_days 
-FROM agentlogingreport 
-GROUP BY agent_name;
-
-agent_name      total_working_days
-NULL    0
-Aditya Shinde   1
-Aditya_iot      8
-Amersh  2
-Ameya Jain      7
-Ankitjha        2
-Anurag Tiwari   10
-Aravind 7
-Ayushi Mishra   9
-Bharath 8
-Boktiar Ahmed Bappy     9
-Chaitra K Hiremath      7
-Deepranjan Gupta        10
-Dibyanshu       9
-Harikrishnan Shaji      9
-Hrisikesh Neogi 9
-Hyder Abbas     2
-Ineuron Intelligence    1
-Ishawant Kumar  11
-Jawala Prakash  9
-Jaydeep Dixit   7
-Khushboo Priya  8
-Madhulika G     8
-Mahesh Sarade   8
-Maitry  5
-Manjunatha A    7
-Mithun S        8
-Mukesh  2
-Muskan Garg     6
-Nandani Gupta   9
-Nishtha Jain    8
-Nitin M 1
-Prabir Kumar Satapathy  7
-Prateek _iot    11
-Prerna Singh    9
-Rishav Dash     7
-Saikumarreddy N 7
-Sanjeev Kumar   9
-Saurabh Shukla  4
-Shiva Srivastava        8
-Shivan K        8
-Shivananda Sonwane      10
-Shubham Sharma  11
-Sowmiya Sivakumar       8
-Sudhanshu Kumar 6
-Suraj S Bilgi   2
-Swati   4
-Tarun   1
-Wasim   9
-Zeeshan 9
+hive> SELECT agent_name,
+    > COUNT(DISTINCT date) AS total_working_days 
+    > FROM agentlogingreport 
+    > GROUP BY agent_name;
 
 
 6. Total query that each agent have taken 

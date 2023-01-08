@@ -43,7 +43,7 @@ hive> CREATE TABLE agentperformance
 
 ![Q1](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q1.JPG?raw=true)
 
-2. Dump the data inside the hdfs in the given schema location.
+### 2. Dump the data inside the hdfs in the given schema location.
 
 #FOR TABLE agentlogingreport
 
@@ -76,14 +76,14 @@ hive> INSERT OVERWRITE TABLE agentperformance
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_ap.JPG?raw=true)
 
-3. List of all agents' names.
+### 3. List of all agents' names.
 
 hive> SELECT DISTINCT agent_name 
     > FROM agentperformance;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q3.JPG?raw=true)
 
-4. Find out agent average rating.
+### 4. Find out agent average rating.
 
 hive> SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating 
     > FROM agentperformance 
@@ -91,7 +91,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q4.JPG?raw=true)
 
-5. Total working days for each agents 
+### 5. Total working days for each agents 
 
 hive> SELECT agent_name,
     > COUNT(DISTINCT date) AS total_working_days 
@@ -100,7 +100,7 @@ hive> SELECT agent_name,
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q5.JPG?raw=true)
 
-6. Total query that each agent have taken 
+### 6. Total query that each agent have taken 
 
 hive> SELECT agent_name, SUM(total_chats) AS total_query 
     > FROM agentperformance 
@@ -108,7 +108,7 @@ hive> SELECT agent_name, SUM(total_chats) AS total_query
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q6.JPG?raw=true)
 
-7. Total Feedback that each agent have received 
+### 7. Total Feedback that each agent have received 
 
 hive> SELECT agent_name, SUM(total_feedback) AS total_feedbacks 
     > FROM agentperformance 
@@ -116,7 +116,7 @@ hive> SELECT agent_name, SUM(total_feedback) AS total_feedbacks
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q7.JPG?raw=true)
 
-8. Agent name who have average rating between 3.5 to 4 
+### 8. Agent name who have average rating between 3.5 to 4 
 
 hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
     > FROM agentperformance 
@@ -125,7 +125,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2)
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q8.JPG?raw=true)
 
-9. Agent name who have rating less than 3.5 
+### 9. Agent name who have rating less than 3.5 
 
 hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
     > FROM agentperformance 
@@ -134,7 +134,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2)
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q9.JPG?raw=truee)
 
-10. Agent name who have rating more than 4.5 
+### 10. Agent name who have rating more than 4.5 
 
 hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
     > FROM agentperformance 
@@ -143,7 +143,7 @@ hive> SELECT agent_name, ROUND(AVG(avg_rating),2)
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q10.JPG?raw=true)
 
-11. How many feedback agents have received more than 4.5 average
+### 11. How many feedback agents have received more than 4.5 average
 
 hive> SELECT agent_name, COUNT(avg_rating) 
     > FROM agentperformance 
@@ -152,7 +152,7 @@ hive> SELECT agent_name, COUNT(avg_rating)
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q11.JPG?raw=true)
 
-12. average weekly response time (in minutes) for each agent
+### 12. average weekly response time (in minutes) for each agent
 
 hive> WITH weekresponse AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS week,
@@ -164,7 +164,7 @@ hive> WITH weekresponse AS(
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q12.JPG?raw=true)
 
-13. average weekly resolution time (in minutes) for each agents 
+### 13. average weekly resolution time (in minutes) for each agents 
 
 hive> WITH weeklyresolution AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS week,
@@ -176,7 +176,7 @@ hive> WITH weeklyresolution AS(
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q13.JPG?raw=true)
 
-14. Find the number of chat on which they have received a feedback 
+### 14. Find the number of chat on which they have received a feedback 
 
 hive> SELECT agent_name, SUM(total_chats), total_feedback 
     > FROM agentperformance 
@@ -185,7 +185,7 @@ hive> SELECT agent_name, SUM(total_chats), total_feedback
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q14.JPG?raw=true)
 
-15. Total contribution hour for each and every agents weekly basis 
+### 15. Total contribution hour for each and every agents weekly basis 
 
 hive> WITH weeklycontribution AS(
     > SELECT agent_name, WEEKOFYEAR(date) AS WEEK,
@@ -197,7 +197,7 @@ hive> WITH weeklycontribution AS(
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q15.JPG?raw=true)
 
-16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
+### 16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
 
 INNER JOIN
 
@@ -247,7 +247,7 @@ FROM projects.agentlogingreport alr RIGHT JOIN projects.agentperformance ap ON a
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q16%20RIGHT%20JOIN%20Export.JPG?raw=true)
 
-17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.
+### 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.
 
 hive> CREATE TABLE alr_partition_bucket
     > (

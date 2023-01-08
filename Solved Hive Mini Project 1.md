@@ -26,20 +26,20 @@ hive> USE projects;
 
 #SCHEMA FOR AgentPerformance.csv
 
-hive> CREATE TABLE agentperformance
-    > (
-    > sl_no int,
-    > date string,
-    > agent_name string,
+hive> CREATE TABLE agentperformance   
+    > (   
+    > sl_no int,   
+    > date string,   
+    > agent_name string,   
     > total_chats int,
-    > avg_response_time string,
-    > avg_resolution_time string,
-    > avg_rating float,
-    > total_feedback int
-    > )
-    > ROW FORMAT DELIMITED
-    > FIELDS TERMINATED BY ','
-    > TBLPROPERTIES ("skip.header.line.count"="1");
+    > avg_response_time string,   
+    > avg_resolution_time string,   
+    > avg_rating float,   
+    > total_feedback int   
+    > )   
+    > ROW FORMAT DELIMITED   
+    > FIELDS TERMINATED BY ','   
+    > TBLPROPERTIES ("skip.header.line.count"="1");   
 
 ![Q1](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q1.JPG?raw=true)
 
@@ -49,12 +49,12 @@ hive> CREATE TABLE agentperformance
 
 hive> LOAD DATA LOCAL INPATH 'file:///tmp/agentlogingreport.csv' INTO TABLE agentlogingreport;
 
-hive> INSERT OVERWRITE TABLE agentlogingreport
-    > SELECT sl_no, agent_name,
-    > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),
-    > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-    > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-    > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')
+hive> INSERT OVERWRITE TABLE agentlogingreport   
+    > SELECT sl_no, agent_name,   
+    > from_unixtime(unix_timestamp(date,'dd-MMM-yy'),'yyyy-MM-dd'),   
+    > from_unixtime(unix_timestamp(concat(date,login_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),   
+    > from_unixtime(unix_timestamp(concat(date,logout_time),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),   
+    > from_unixtime(unix_timestamp(concat(date,duration),'dd-MMM-yyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss')   
     > FROM agentlogingreport;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_alr.JPG?raw=true)
@@ -63,83 +63,83 @@ hive> INSERT OVERWRITE TABLE agentlogingreport
 
 hive> LOAD DATA LOCAL INPATH 'file:///tmp/agentperformance.csv' INTO TABLE agentperformance;
 
-hive> INSERT OVERWRITE TABLE agentperformance
-    > SELECT sl_no,
-    > from_unixtime(unix_timestamp(date,'M/dd/yyyy'),'yyyy-MM-dd'),
-    > agent_name,
-    > total_chats,
-    > from_unixtime(unix_timestamp(concat(date,avg_response_time),'M/dd/yyyyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-    > from_unixtime(unix_timestamp(concat(date,avg_resolution_time),'M/dd/yyyyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),
-    > avg_rating,
-    > total_feedback
-    > FROM agentperformance;
+hive> INSERT OVERWRITE TABLE agentperformance   
+    > SELECT sl_no,   
+    > from_unixtime(unix_timestamp(date,'M/dd/yyyy'),'yyyy-MM-dd'),   
+    > agent_name,   
+    > total_chats,   
+    > from_unixtime(unix_timestamp(concat(date,avg_response_time),'M/dd/yyyyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),   
+    > from_unixtime(unix_timestamp(concat(date,avg_resolution_time),'M/dd/yyyyHH:mm:ss'),'yyyy-MM-dd HH:mm:ss'),   
+    > avg_rating,   
+    > total_feedback   
+    > FROM agentperformance;   
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q2_ap.JPG?raw=true)
 
 ### 3. List of all agents' names.
 
-hive> SELECT DISTINCT agent_name 
+hive> SELECT DISTINCT agent_name    
     > FROM agentperformance;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q3.JPG?raw=true)
 
 ### 4. Find out agent average rating.
 
-hive> SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating 
-    > FROM agentperformance 
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2) AS avg_rating    
+    > FROM agentperformance    
     > GROUP BY agent_name;
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q4.JPG?raw=true)
 
 ### 5. Total working days for each agents 
 
-hive> SELECT agent_name,
-    > COUNT(DISTINCT date) AS total_working_days 
-    > FROM agentlogingreport 
-    > GROUP BY agent_name;
+hive> SELECT agent_name,   
+    > COUNT(DISTINCT date) AS total_working_days    
+    > FROM agentlogingreport    
+    > GROUP BY agent_name; 
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q5.JPG?raw=true)
 
 ### 6. Total query that each agent have taken 
 
-hive> SELECT agent_name, SUM(total_chats) AS total_query 
-    > FROM agentperformance 
-    > GROUP BY agent_name;
+hive> SELECT agent_name, SUM(total_chats) AS total_query   
+    > FROM agentperformance   
+    > GROUP BY agent_name;  
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q6.JPG?raw=true)
 
 ### 7. Total Feedback that each agent have received 
 
-hive> SELECT agent_name, SUM(total_feedback) AS total_feedbacks 
-    > FROM agentperformance 
-    > GROUP BY agent_name;
+hive> SELECT agent_name, SUM(total_feedback) AS total_feedbacks   
+    > FROM agentperformance    
+    > GROUP BY agent_name;  
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q7.JPG?raw=true)
 
 ### 8. Agent name who have average rating between 3.5 to 4 
 
-hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
-    > FROM agentperformance 
-    > WHERE avg_rating BETWEEN 3.5 AND 4 
-    > GROUP BY agent_name;
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2)   
+    > FROM agentperformance    
+    > WHERE avg_rating BETWEEN 3.5 AND 4   
+    > GROUP BY agent_name;   
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q8.JPG?raw=true)
 
 ### 9. Agent name who have rating less than 3.5 
 
-hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
-    > FROM agentperformance 
-    > GROUP BY agent_name 
-    > HAVING AVG(avg_rating) < 3.5;
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2)     
+    > FROM agentperformance    
+    > GROUP BY agent_name    
+    > HAVING AVG(avg_rating) < 3.5;   
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q9.JPG?raw=truee)
 
 ### 10. Agent name who have rating more than 4.5 
 
-hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
-    > FROM agentperformance 
-    > WHERE avg_rating > 4.5 
-    > GROUP BY agent_name;
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2)   
+    > FROM agentperformance    
+    > WHERE avg_rating > 4.5    
+    > GROUP BY agent_name;   
 
 ![Q2](https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Screenshots/Q10.JPG?raw=true)
 

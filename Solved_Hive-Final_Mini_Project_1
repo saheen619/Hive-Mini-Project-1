@@ -1416,6 +1416,61 @@ Zeeshan         30      12.89
 
 
 14. Find the number of chat on which they have received a feedback 
+
+agent_name      _c1
+Aditya Shinde   277
+Aditya_iot      231
+Ameya Jain      322
+Anirudh         80
+Ankitjha        4
+Anurag Tiwari   4
+Aravind         366
+Ashad Nasim     18
+Ayushi Mishra   514
+Bharath         369
+Boktiar Ahmed Bappy     450
+Chaitra K Hiremath      64
+Deepranjan Gupta        492
+Harikrishnan Shaji      381
+Hrisikesh Neogi 578
+Ishawant Kumar  338
+Jawala Prakash  439
+Jayant Kumar    127
+Jaydeep Dixit   512
+Khushboo Priya  444
+Madhulika G     469
+Mahak   7
+Mahesh Sarade   364
+Maitry  542
+Maneesh         3
+Manjunatha A    411
+Mithun S        503
+Mukesh  19
+Mukesh Rao      5
+Muskan Garg     56
+Nandani Gupta   560
+Nishtha Jain    373
+Prabir Kumar Satapathy  299
+Prateek _iot    189
+Prerna Singh    390
+Rishav Dash     407
+Saikumarreddy N 364
+Sandipan Saha   30
+Sanjeev Kumar   507
+Saurabh Shukla  16
+Shiva Srivastava        53
+Shivan K        355
+Shivan_S        7
+Shivananda Sonwane      441
+Shubham Sharma  510
+Sowmiya Sivakumar       206
+Sudhanshu Kumar 2
+Suraj S Bilgi   28
+Swati   524
+
+
+
+
 15. Total contribution hour for each and every agents weekly basis 
 16. Perform inner join, left join and right join based on the agent column and after joining the table export that data into your local system.
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.

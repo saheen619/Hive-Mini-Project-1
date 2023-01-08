@@ -92,345 +92,40 @@ hive> SELECT agent_name,
 
 6. Total query that each agent have taken 
 
-SELECT agent_name, SUM(total_chats) AS total_query 
-FROM agentperformance 
-GROUP BY agent_name;
-
-agent_name      total_query
-Abhishek        0
-Aditya  0
-Aditya Shinde   277
-Aditya_iot      231
-Amersh  0
-Ameya Jain      322
-Anirudh         81
-Ankit Sharma    0
-Ankitjha        5
-Anurag Tiwari   4
-Aravind         366
-Ashad Nasim     18
-Ashish  0
-Ayushi Mishra   514
-Bharath         369
-Boktiar Ahmed Bappy     452
-Chaitra K Hiremath      64
-Deepranjan Gupta        493
-Dibyanshu       1
-Harikrishnan Shaji      381
-Hitesh Choudhary        1
-Hrisikesh Neogi 578
-Hyder Abbas     0
-Ineuron Intelligence    0
-Ishawant Kumar  338
-Jawala Prakash  439
-Jayant Kumar    127
-Jaydeep Dixit   512
-Khushboo Priya  446
-Madhulika G     469
-Mahak   7
-Mahesh Sarade   364
-Maitry  542
-Maneesh         4
-Manjunatha A    413
-Mithun S        503
-Mukesh  19
-Mukesh Rao      5
-Muskan Garg     56
-Nandani Gupta   560
-Nishtha Jain    373
-Nitin M 0
-Prabir Kumar Satapathy  299
-Prateek _iot    190
-Prerna Singh    401
-Rishav Dash     409
-Rohan   0
-Saif Khan       0
-Saikumarreddy N 364
-Samprit         1
-Sandipan Saha   30
-Sanjeev Kumar   507
-Sanjeevan       0
-Saurabh Shukla  16
-Shiva Srivastava        53
-Shivan K        357
-Shivan_S        7
-Shivananda Sonwane      441
-Shubham Sharma  510
-Sowmiya Sivakumar       206
-Spuri   0
-Sudhanshu Kumar 2
-Suraj S Bilgi   28
-Swati   524
-Tarun   22
-Uday Mishra     0
-Vasanth P       0
-Vivek   44
-Wasim   433
-Zeeshan         542
-
+hive> SELECT agent_name, SUM(total_chats) AS total_query 
+    > FROM agentperformance 
+    > GROUP BY agent_name;
 
 
 7. Total Feedback that each agent have received 
 
-SELECT agent_name, SUM(total_feedback) AS total_feedbacks 
-FROM agentperformance 
-GROUP BY agent_name;
-
-agent_name      total_feedbacks
-Abhishek        0
-Aditya  0
-Aditya Shinde   153
-Aditya_iot      131
-Amersh  0
-Ameya Jain      228
-Anirudh         39
-Ankit Sharma    0
-Ankitjha        3
-Anurag Tiwari   3
-Aravind         233
-Ashad Nasim     9
-Ashish  0
-Ayushi Mishra   329
-Bharath         247
-Boktiar Ahmed Bappy     311
-Chaitra K Hiremath      37
-Deepranjan Gupta        312
-Dibyanshu       0
-Harikrishnan Shaji      231
-Hitesh Choudhary        0
-Hrisikesh Neogi 367
-Hyder Abbas     0
-Ineuron Intelligence    0
-Ishawant Kumar  202
-Jawala Prakash  250
-Jayant Kumar    70
-Jaydeep Dixit   305
-Khushboo Priya  289
-Madhulika G     281
-Mahak   5
-Mahesh Sarade   216
-Maitry  347
-Maneesh         3
-Manjunatha A    254
-Mithun S        364
-Mukesh  17
-Mukesh Rao      5
-Muskan Garg     37
-Nandani Gupta   308
-Nishtha Jain    257
-Nitin M 0
-Prabir Kumar Satapathy  222
-Prateek _iot    107
-Prerna Singh    235
-Rishav Dash     264
-Rohan   0
-Saif Khan       0
-Saikumarreddy N 290
-Samprit         0
-Sandipan Saha   18
-Sanjeev Kumar   311
-Sanjeevan       0
-Saurabh Shukla  8
-Shiva Srivastava        46
-Shivan K        243
-Shivan_S        4
-Shivananda Sonwane      263
-Shubham Sharma  300
-Sowmiya Sivakumar       141
-Spuri   0
-Sudhanshu Kumar 2
-Suraj S Bilgi   15
-Swati   302
-Tarun   6
-Uday Mishra     0
-Vasanth P       0
-Vivek   20
-Wasim   284
-Zeeshan         335
-
+hive> SELECT agent_name, SUM(total_feedback) AS total_feedbacks 
+    > FROM agentperformance 
+    > GROUP BY agent_name;
 
 
 8. Agent name who have average rating between 3.5 to 4 
 
-SELECT agent_name, ROUND(AVG(avg_rating),2) 
-FROM agentperformance 
-WHERE avg_rating BETWEEN 3.5 AND 4 
-GROUP BY agent_name;
-
-agent_name      _c1
-Aditya Shinde   3.54
-Aditya_iot      3.74
-Ameya Jain      4.0
-Anirudh         3.77
-Anurag Tiwari   3.5
-Ashad Nasim     4.0
-Ayushi Mishra   3.85
-Boktiar Ahmed Bappy     3.88
-Chaitra K Hiremath      4.0
-Deepranjan Gupta        3.68
-Harikrishnan Shaji      3.84
-Hrisikesh Neogi 3.78
-Ishawant Kumar  3.77
-Jawala Prakash  3.84
-Jayant Kumar    3.76
-Jaydeep Dixit   3.98
-Khushboo Priya  3.81
-Madhulika G     3.86
-Mahesh Sarade   3.78
-Maitry  3.83
-Maneesh         4.0
-Manjunatha A    3.87
-Mithun S        3.82
-Muskan Garg     3.81
-Nandani Gupta   3.74
-Nishtha Jain    3.78
-Prabir Kumar Satapathy  4.0
-Prateek _iot    3.75
-Prerna Singh    3.8
-Rishav Dash     3.79
-Sandipan Saha   3.62
-Sanjeev Kumar   4.0
-Saurabh Shukla  3.67
-Shiva Srivastava        4.0
-Shivan K        3.98
-Shivananda Sonwane      3.62
-Shubham Sharma  4.0
-Swati   3.76
-Wasim   3.84
-Zeeshan         3.77
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
+    > FROM agentperformance 
+    > WHERE avg_rating BETWEEN 3.5 AND 4 
+    > GROUP BY agent_name;
 
 
 9. Agent name who have rating less than 3.5 
 
-SELECT agent_name, ROUND(AVG(avg_rating),2) 
-FROM agentperformance 
-GROUP BY agent_name 
-HAVING AVG(avg_rating) < 3.5;
-
-agent_name      _c1
-Abhishek        0.0
-Aditya  0.0
-Aditya Shinde   1.8
-Aditya_iot      2.35
-Amersh  0.0
-Ameya Jain      2.22
-Anirudh         0.64
-Ankit Sharma    0.0
-Ankitjha        0.27
-Anurag Tiwari   0.18
-Aravind         2.18
-Ashad Nasim     0.17
-Ashish  0.0
-Ayushi Mishra   3.48
-Bharath         2.98
-Chaitra K Hiremath      0.86
-Deepranjan Gupta        2.89
-Dibyanshu       0.0
-Harikrishnan Shaji      2.64
-Hitesh Choudhary        0.0
-Hrisikesh Neogi 3.14
-Hyder Abbas     0.0
-Ineuron Intelligence    0.0
-Jawala Prakash  3.47
-Jayant Kumar    1.07
-Jaydeep Dixit   3.17
-Madhulika G     3.5
-Mahak   0.1
-Mahesh Sarade   2.4
-Maitry  2.93
-Maneesh         0.17
-Mithun S        2.36
-Mukesh  0.31
-Mukesh Rao      0.26
-Muskan Garg     0.71
-Nandani Gupta   2.92
-Nishtha Jain    3.28
-Nitin M 0.0
-Prabir Kumar Satapathy  2.51
-Prateek _iot    2.44
-Prerna Singh    3.23
-Rishav Dash     1.43
-Rohan   0.0
-Saif Khan       0.0
-Saikumarreddy N 1.98
-Samprit         0.0
-Sandipan Saha   0.43
-Sanjeev Kumar   3.38
-Sanjeevan       0.0
-Saurabh Shukla  0.56
-Shiva Srivastava        0.94
-Shivan K        2.84
-Shivan_S        0.14
-Shubham Sharma  3.23
-Sowmiya Sivakumar       1.26
-Spuri   0.0
-Sudhanshu Kumar 0.33
-Suraj S Bilgi   0.31
-Swati   2.42
-Tarun   0.05
-Uday Mishra     0.0
-Vasanth P       0.0
-Vivek   0.5
-Wasim   2.4
-Zeeshan         2.29
-
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
+    > FROM agentperformance 
+    > GROUP BY agent_name 
+    > HAVING AVG(avg_rating) < 3.5;
 
 
 10. Agent name who have rating more than 4.5 
 
-SELECT agent_name, ROUND(AVG(avg_rating),2) 
-FROM agentperformance 
-WHERE avg_rating > 4.5 
-GROUP BY agent_name;
-
-agent_name      _c1
-Aditya Shinde   4.77
-Aditya_iot      4.73
-Ameya Jain      4.67
-Anirudh         5.0
-Ankitjha        5.0
-Aravind         4.74
-Ayushi Mishra   4.77
-Bharath         4.76
-Boktiar Ahmed Bappy     4.87
-Chaitra K Hiremath      5.0
-Deepranjan Gupta        4.83
-Harikrishnan Shaji      4.75
-Hrisikesh Neogi 4.72
-Ishawant Kumar  4.83
-Jawala Prakash  4.76
-Jayant Kumar    5.0
-Jaydeep Dixit   4.75
-Khushboo Priya  4.71
-Madhulika G     4.82
-Mahesh Sarade   4.62
-Maitry  4.88
-Manjunatha A    4.76
-Mithun S        4.7
-Mukesh  4.64
-Mukesh Rao      5.0
-Muskan Garg     4.8
-Nandani Gupta   4.67
-Nishtha Jain    5.0
-Prabir Kumar Satapathy  4.88
-Prateek _iot    4.88
-Prerna Singh    4.73
-Rishav Dash     4.7
-Saikumarreddy N 4.74
-Sandipan Saha   5.0
-Sanjeev Kumar   4.72
-Saurabh Shukla  5.0
-Shiva Srivastava        5.0
-Shivan K        4.76
-Shivananda Sonwane      4.82
-Shubham Sharma  4.81
-Sowmiya Sivakumar       4.75
-Sudhanshu Kumar 5.0
-Suraj S Bilgi   5.0
-Swati   4.67
-Vivek   5.0
-Wasim   4.73
-Zeeshan         4.76
+hive> SELECT agent_name, ROUND(AVG(avg_rating),2) 
+    > FROM agentperformance 
+    > WHERE avg_rating > 4.5 
+    > GROUP BY agent_name;
 
 
 11. How many feedback agents have received more than 4.5 average

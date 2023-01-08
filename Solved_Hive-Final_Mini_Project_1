@@ -237,3 +237,28 @@ hive> SET hive.exec.dynamic.partition.mode = nonstrict;
 hive> INSERT INTO TABLE alr_partition_bucket PARTITION(agent_name) 
     > SELECT sl_no,date,login_time,logout_time,duration,agent_name FROM agentlogingreport;
 
+
+
+
+
+
+
+FOR THE TABLE agentperformance,
+
+hive> CREATE TABLE ap_partition_bucket
+    > (
+    > sl_no int,
+    > date string,
+    > total_chats int,
+    > avg_response_time string,
+    > avg_resolution_time string,
+    > avg_rating float,
+    > total_feedback int
+    > )PARTITIONED BY (agent_name string)
+    > CLUSTERED BY (date)
+    > SORTED BY(date) INTO 8 BUCKETS
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ',';
+
+hive> INSERT INTO TABLE ap_partition_bucket PARTITION(agent_name)
+    > SELECT sl_no, date, total_chats, avg_response_time, avg_resolution_time, avg_rating, total_feedback, agent_name FROM agentperformance;

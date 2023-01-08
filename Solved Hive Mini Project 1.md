@@ -10,8 +10,8 @@ Note: both files are csv files.
 
 #SCHEMA FOR AgentLogingReport.csv
 
-hive> USE projects;/n
-    > CREATE TABLE agentlogingreport
+hive> USE projects;    
+    > CREATE TABLE agentlogingreport    
     > (
     > sl_no int,
     > agent_name string,

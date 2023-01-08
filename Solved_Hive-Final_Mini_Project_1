@@ -1052,6 +1052,367 @@ Zeeshan         30      1.06
 
 13. average weekly resolution time for each agents 
 
+hive>  WITH weeklyresolution AS(
+    > SELECT agent_name, WEEKOFYEAR(date) AS week,
+    > (HOUR(avg_resolution_time)*3600 + MINUTE(avg_resolution_time)*60 + SECOND(avg_resolution_time))/60 AS resolution_time
+    > FROM agentperformance)
+    > SELECT agent_name, week, ROUND(AVG(resolution_time),2) as avg_resolution_in_minutes
+    > FROM weeklyresolution
+    > GROUP BY agent_name, week;
+
+
+agent_name      week    avg_resolution_in_minutes
+Abhishek        26      0.0
+Abhishek        27      0.0
+Abhishek        28      0.0
+Abhishek        29      0.0
+Abhishek        30      0.0
+Aditya  26      0.0
+Aditya  27      0.0
+Aditya  28      0.0
+Aditya  29      0.0
+Aditya  30      0.0
+Aditya Shinde   26      15.45
+Aditya Shinde   27      15.06
+Aditya Shinde   28      22.65
+Aditya Shinde   29      0.0
+Aditya Shinde   30      0.0
+Aditya_iot      26      0.0
+Aditya_iot      27      5.16
+Aditya_iot      28      15.18
+Aditya_iot      29      11.2
+Aditya_iot      30      12.3
+Amersh  26      0.0
+Amersh  27      0.0
+Amersh  28      0.0
+Amersh  29      0.0
+Amersh  30      0.0
+Ameya Jain      26      0.0
+Ameya Jain      27      0.25
+Ameya Jain      28      8.06
+Ameya Jain      29      8.3
+Ameya Jain      30      7.99
+Anirudh         26      0.0
+Anirudh         27      8.13
+Anirudh         28      5.12
+Anirudh         29      0.0
+Anirudh         30      0.0
+Ankit Sharma    26      0.0
+Ankit Sharma    27      0.0
+Ankit Sharma    28      0.0
+Ankit Sharma    29      0.0
+Ankit Sharma    30      0.0
+Ankitjha        26      0.0
+Ankitjha        27      3.05
+Ankitjha        28      0.0
+Ankitjha        29      0.0
+Ankitjha        30      0.98
+Anurag Tiwari   26      0.0
+Anurag Tiwari   27      5.28
+Anurag Tiwari   28      0.0
+Anurag Tiwari   29      0.0
+Anurag Tiwari   30      0.0
+Aravind         26      0.0
+Aravind         27      10.37
+Aravind         28      14.42
+Aravind         29      13.46
+Aravind         30      0.0
+Ashad Nasim     26      0.0
+Ashad Nasim     27      1.5
+Ashad Nasim     28      0.0
+Ashad Nasim     29      0.0
+Ashad Nasim     30      0.0
+Ashish  26      0.0
+Ashish  27      0.0
+Ashish  28      0.0
+Ashish  29      0.0
+Ashish  30      0.0
+Ayushi Mishra   26      17.03
+Ayushi Mishra   27      12.38
+Ayushi Mishra   28      14.61
+Ayushi Mishra   29      18.46
+Ayushi Mishra   30      15.34
+Bharath         26      6.47
+Bharath         27      12.36
+Bharath         28      7.36
+Bharath         29      9.41
+Bharath         30      16.74
+Boktiar Ahmed Bappy     26      15.01
+Boktiar Ahmed Bappy     27      33.15
+Boktiar Ahmed Bappy     28      6.8
+Boktiar Ahmed Bappy     29      11.6
+Boktiar Ahmed Bappy     30      17.68
+Chaitra K Hiremath      26      0.0
+Chaitra K Hiremath      27      0.0
+Chaitra K Hiremath      28      0.0
+Chaitra K Hiremath      29      0.71
+Chaitra K Hiremath      30      6.58
+Deepranjan Gupta        26      20.13
+Deepranjan Gupta        27      25.8
+Deepranjan Gupta        28      16.53
+Deepranjan Gupta        29      22.0
+Deepranjan Gupta        30      19.14
+Dibyanshu       26      0.0
+Dibyanshu       27      1.76
+Dibyanshu       28      0.0
+Dibyanshu       29      0.0
+Dibyanshu       30      0.0
+Harikrishnan Shaji      26      0.0
+Harikrishnan Shaji      27      6.0
+Harikrishnan Shaji      28      12.7
+Harikrishnan Shaji      29      17.85
+Harikrishnan Shaji      30      13.9
+Hitesh Choudhary        26      0.0
+Hitesh Choudhary        27      0.0
+Hitesh Choudhary        28      0.2
+Hitesh Choudhary        29      0.0
+Hitesh Choudhary        30      0.0
+Hrisikesh Neogi 26      13.42
+Hrisikesh Neogi 27      14.22
+Hrisikesh Neogi 28      12.45
+Hrisikesh Neogi 29      18.84
+Hrisikesh Neogi 30      17.38
+Hyder Abbas     26      0.0
+Hyder Abbas     27      0.0
+Hyder Abbas     28      0.0
+Hyder Abbas     29      0.0
+Hyder Abbas     30      0.0
+Ineuron Intelligence    26      0.0
+Ineuron Intelligence    27      0.0
+Ineuron Intelligence    28      0.0
+Ineuron Intelligence    29      0.0
+Ineuron Intelligence    30      0.0
+Ishawant Kumar  26      0.0
+Ishawant Kumar  27      14.2
+Ishawant Kumar  28      13.25
+Ishawant Kumar  29      17.99
+Ishawant Kumar  30      19.09
+Jawala Prakash  26      10.95
+Jawala Prakash  27      7.96
+Jawala Prakash  28      14.58
+Jawala Prakash  29      14.98
+Jawala Prakash  30      15.79
+Jayant Kumar    26      12.73
+Jayant Kumar    27      14.0
+Jayant Kumar    28      1.61
+Jayant Kumar    29      0.0
+Jayant Kumar    30      0.0
+Jaydeep Dixit   26      13.1
+Jaydeep Dixit   27      18.17
+Jaydeep Dixit   28      19.18
+Jaydeep Dixit   29      21.37
+Jaydeep Dixit   30      15.03
+Khushboo Priya  26      18.43
+Khushboo Priya  27      23.93
+Khushboo Priya  28      15.9
+Khushboo Priya  29      12.58
+Khushboo Priya  30      13.34
+Madhulika G     26      12.92
+Madhulika G     27      14.56
+Madhulika G     28      16.46
+Madhulika G     29      12.56
+Madhulika G     30      20.4
+Mahak   26      0.0
+Mahak   27      2.87
+Mahak   28      0.0
+Mahak   29      0.0
+Mahak   30      0.0
+Mahesh Sarade   26      0.0
+Mahesh Sarade   27      6.04
+Mahesh Sarade   28      10.26
+Mahesh Sarade   29      13.1
+Mahesh Sarade   30      11.48
+Maitry  26      10.99
+Maitry  27      11.33
+Maitry  28      13.96
+Maitry  29      16.98
+Maitry  30      9.12
+Maneesh         26      0.0
+Maneesh         27      2.98
+Maneesh         28      0.0
+Maneesh         29      0.0
+Maneesh         30      0.0
+Manjunatha A    26      17.83
+Manjunatha A    27      20.09
+Manjunatha A    28      16.15
+Manjunatha A    29      10.92
+Manjunatha A    30      20.86
+Mithun S        26      0.0
+Mithun S        27      3.49
+Mithun S        28      5.79
+Mithun S        29      7.6
+Mithun S        30      9.2
+Mukesh  26      0.0
+Mukesh  27      0.0
+Mukesh  28      0.0
+Mukesh  29      0.0
+Mukesh  30      6.33
+Mukesh Rao      26      0.0
+Mukesh Rao      27      32.9
+Mukesh Rao      28      0.0
+Mukesh Rao      29      0.0
+Mukesh Rao      30      0.0
+Muskan Garg     26      0.0
+Muskan Garg     27      0.0
+Muskan Garg     28      0.0
+Muskan Garg     29      0.0
+Muskan Garg     30      9.6
+Nandani Gupta   26      17.51
+Nandani Gupta   27      16.7
+Nandani Gupta   28      17.03
+Nandani Gupta   29      18.53
+Nandani Gupta   30      21.09
+Nishtha Jain    26      0.0
+Nishtha Jain    27      11.87
+Nishtha Jain    28      10.97
+Nishtha Jain    29      8.61
+Nishtha Jain    30      9.84
+Nitin M 26      0.0
+Nitin M 27      0.0
+Nitin M 28      0.0
+Nitin M 29      0.0
+Nitin M 30      0.0
+Prabir Kumar Satapathy  26      0.0
+Prabir Kumar Satapathy  27      5.23
+Prabir Kumar Satapathy  28      8.34
+Prabir Kumar Satapathy  29      7.66
+Prabir Kumar Satapathy  30      4.95
+Prateek _iot    26      0.0
+Prateek _iot    27      5.28
+Prateek _iot    28      11.51
+Prateek _iot    29      9.56
+Prateek _iot    30      9.77
+Prerna Singh    26      10.31
+Prerna Singh    27      13.7
+Prerna Singh    28      23.43
+Prerna Singh    29      14.73
+Prerna Singh    30      19.5
+Rishav Dash     26      9.49
+Rishav Dash     27      7.75
+Rishav Dash     28      6.73
+Rishav Dash     29      10.05
+Rishav Dash     30      9.1
+Rohan   26      0.0
+Rohan   27      0.0
+Rohan   28      0.0
+Rohan   29      0.0
+Rohan   30      0.0
+Saif Khan       26      0.0
+Saif Khan       27      0.0
+Saif Khan       28      0.0
+Saif Khan       29      0.0
+Saif Khan       30      0.0
+Saikumarreddy N 26      0.0
+Saikumarreddy N 27      0.0
+Saikumarreddy N 28      8.44
+Saikumarreddy N 29      9.56
+Saikumarreddy N 30      10.12
+Samprit         26      0.0
+Samprit         27      0.25
+Samprit         28      0.0
+Samprit         29      0.0
+Samprit         30      0.0
+Sandipan Saha   26      0.0
+Sandipan Saha   27      0.0
+Sandipan Saha   28      11.27
+Sandipan Saha   29      0.0
+Sandipan Saha   30      0.0
+Sanjeev Kumar   26      20.67
+Sanjeev Kumar   27      15.04
+Sanjeev Kumar   28      19.46
+Sanjeev Kumar   29      13.97
+Sanjeev Kumar   30      19.09
+Sanjeevan       26      0.0
+Sanjeevan       27      0.0
+Sanjeevan       28      0.0
+Sanjeevan       29      0.0
+Sanjeevan       30      0.0
+Saurabh Shukla  26      3.53
+Saurabh Shukla  27      2.63
+Saurabh Shukla  28      0.96
+Saurabh Shukla  29      0.0
+Saurabh Shukla  30      0.0
+Shiva Srivastava        26      0.0
+Shiva Srivastava        27      0.0
+Shiva Srivastava        28      0.0
+Shiva Srivastava        29      1.8
+Shiva Srivastava        30      5.3
+Shivan K        26      30.58
+Shivan K        27      19.31
+Shivan K        28      11.78
+Shivan K        29      13.44
+Shivan K        30      12.06
+Shivan_S        26      0.0
+Shivan_S        27      2.62
+Shivan_S        28      0.0
+Shivan_S        29      0.0
+Shivan_S        30      0.0
+Shivananda Sonwane      26      22.23
+Shivananda Sonwane      27      20.89
+Shivananda Sonwane      28      19.5
+Shivananda Sonwane      29      20.5
+Shivananda Sonwane      30      23.55
+Shubham Sharma  26      16.41
+Shubham Sharma  27      19.64
+Shubham Sharma  28      16.99
+Shubham Sharma  29      15.39
+Shubham Sharma  30      18.04
+Sowmiya Sivakumar       26      0.0
+Sowmiya Sivakumar       27      0.0
+Sowmiya Sivakumar       28      0.0
+Sowmiya Sivakumar       29      11.25
+Sowmiya Sivakumar       30      16.66
+Spuri   26      0.0
+Spuri   27      0.0
+Spuri   28      0.0
+Spuri   29      0.0
+Spuri   30      0.0
+Sudhanshu Kumar 26      0.0
+Sudhanshu Kumar 27      2.55
+Sudhanshu Kumar 28      5.81
+Sudhanshu Kumar 29      0.0
+Sudhanshu Kumar 30      0.0
+Suraj S Bilgi   26      0.0
+Suraj S Bilgi   27      0.0
+Suraj S Bilgi   28      0.0
+Suraj S Bilgi   29      0.0
+Suraj S Bilgi   30      13.14
+Swati   26      17.66
+Swati   27      14.72
+Swati   28      17.2
+Swati   29      7.82
+Swati   30      6.2
+Tarun   26      15.08
+Tarun   27      0.0
+Tarun   28      0.0
+Tarun   29      0.0
+Tarun   30      0.0
+Uday Mishra     26      0.0
+Uday Mishra     27      0.0
+Uday Mishra     28      0.0
+Uday Mishra     29      0.0
+Uday Mishra     30      0.0
+Vasanth P       26      0.0
+Vasanth P       27      0.0
+Vasanth P       28      0.0
+Vasanth P       29      0.0
+Vasanth P       30      0.0
+Vivek   26      0.0
+Vivek   27      2.42
+Vivek   28      8.5
+Vivek   29      0.0
+Vivek   30      0.0
+Wasim   26      0.0
+Wasim   27      3.27
+Wasim   28      14.45
+Wasim   29      16.42
+Wasim   30      17.58
+Zeeshan         26      0.0
+Zeeshan         27      5.38
+Zeeshan         28      16.4
+Zeeshan         29      13.24
+Zeeshan         30      12.89
+
 
 
 14. Find the number of chat on which they have received a feedback 

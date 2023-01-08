@@ -217,3 +217,23 @@ FROM projects.agentlogingreport alr RIGHT JOIN projects.agentperformance ap ON a
 
 
 17. Perform partitioning on top of the agent column and then on top of that perform bucketing for each partitioning.
+
+hive> CREATE TABLE alr_partition_bucket
+    > (
+    > sl_no int,
+    > date string,
+    > login_time string,
+    > logout_time string,
+    > duration string
+    > )PARTITIONED BY(agent_name string)
+    > CLUSTERED BY (date)
+    > SORTED BY (date) INTO 4 BUCKETS
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ',';
+
+hive> SET hive.exec.dynamic.partition = true;
+hive> SET hive.exec.dynamic.partition.mode = nonstrict;
+
+hive> INSERT INTO TABLE alr_partition_bucket PARTITION(agent_name) 
+    > SELECT sl_no,date,login_time,logout_time,duration,agent_name FROM agentlogingreport;
+

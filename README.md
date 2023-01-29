@@ -1,7 +1,7 @@
 
 ## Title
 
-A Mini Project on HIVE . To see the solved assignment, run the file Solved Hive Mini Project 1.md or click on the link : 
+A Mini Project on HIVE . To see the solved project, run the file Solved Hive Mini Project 1.md or click on the link : 
 https://github.com/saheen619/Hive-Mini_Project_1/blob/main/Solved%20Hive%20Mini%20Project%201.md
 
 ## Objective
